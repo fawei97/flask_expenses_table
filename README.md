@@ -1,0 +1,1 @@
+# flask_expenses_table
