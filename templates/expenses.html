@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+    </style>
+</head>
+<body>
+
+<table>
+    <tr>
+    <th>Name</th>
+    <th>Expense Description</th>
+    <th>Expense Amount (€)</th>
+    </tr>
+
+    {% for row in rows %}
+    <tr>
+        <td>{{row["Name"]}}</td>
+        <td>{{row["Expense_Description"]}}</td>
+        <td>{{row["Expense_Amount"]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+<a href="/add-expense">Add expense</a><br>
+
+<img src="../{{barchart_plot}}" alt="Expenses">
+
+</body>
+</html>

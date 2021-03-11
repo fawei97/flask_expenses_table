@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Add your expense</h2>
+
+<form name="expenseInput" action="" onsubmit="return checkInp()" method="post">
+    <label for="name">Name:</label><br>
+
+    <select name="name" id="name">
+        <option value="Fabian">Fabian</option>
+        <option value="Max">Max</option>
+    </select>
+    <br>
+    <label for="expense-desc">Expense Description:</label><br>
+    <input type="text" id="expense-desc" name="expense-desc"><br><label
+        for="expense-amount">Expense Amount:</label>
+    <br>
+    <input type="text" id="expense-amount" name="expense-amount">
+    <br><br>
+    <p style="color:red">{{error_message}}</p>
+    <input type="submit" value="Submit">
+</form>
+
+<p>If you click the "Submit" button, the form-data will be available at the
+    main page.</p>
+
+<a href="/">Go to main page</a>
+
+<script>
+function checkInp()
+{
+  var x=document.forms["expenseInput"]["expense-amount"].value;
+    if (isNaN(x) || !x)
+    {
+        alert("Expense amount must be numerical. Example: 3.25");
+        return false;
+    }
+  var y=document.forms["expenseInput"]["expense-desc"].value;
+    if (!y)
+    {
+        alert("Expense description must be provided.");
+        return false;
+    }
+  alert("Successfully added expense to database!")
+}
+
+</script>
+</body>
+</html>
