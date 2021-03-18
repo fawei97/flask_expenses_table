@@ -17,6 +17,17 @@ import matplotlib.pyplot as plt
 
 ###############################################################################
 #
+#   ToDo
+#
+###############################################################################
+
+# Add timestamp for each insert into database
+# Add functionality to delete specific rows in database
+# Add functionality to drop entire table and save to history table
+# Add funcitonality to display Schulden
+
+###############################################################################
+#
 #   Variables
 #
 ###############################################################################
@@ -87,7 +98,7 @@ def add_expenses():
     expense_amount = float(request.form['expense-amount'])
 
     # Connect to databse
-    connection = sqlite3.connect(current_directory + db_path)
+    connection = sqlite3.connect(db_path[1:])
     cursor = connection.cursor()
     # Insert data into database
     query_1 = f"INSERT INTO expenses VALUES('{name}', " \
@@ -105,6 +116,5 @@ def add_expenses():
 #   Run
 #
 ###############################################################################
-
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+     app.run(debug=True, host='0.0.0.0')
